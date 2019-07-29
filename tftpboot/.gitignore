@@ -1,3 +1,4 @@
 initrd.gz
 linux
 *.c32
+lpxelinux.0
