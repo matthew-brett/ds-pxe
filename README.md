@@ -86,7 +86,7 @@ Test Tftp server with:
 ```
 tftp localhost
 tftp> get lpxelinux.0
-Received 42226 bytes in 0.1 seconds
+Received 92766 bytes in 1.7 seconds
 tftp> q
 ```
 
