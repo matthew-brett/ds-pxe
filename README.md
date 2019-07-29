@@ -10,15 +10,16 @@ more. This way my students can take away a laptop for the whole university
 year.  Although the laptop is too slow to run Windows, the Lubuntu install
 makes it usable for the work they need to do for my data science classes.
 
-The system runs on my office desktop. Luckily that has two network ports, so
-I can run the install system services such as DHCP on a private internal
-network.
+The install system runs on my office desktop. Luckily that has two Ethernet
+ports, so it is easy to run the install system services such as DHCP on
+a private internal network.
 
-I plug the laptops into Ethernet ports on a switch on my desk, and boot from
-the LAN.  After about an hour, the laptop has a complete Lubuntu install, with
-all updates, and a fresh copy of RStudio, with the libraries needed for
-R Notebooks.  In due course I'll add more installs, but this is now just
-a question of extending a bash script `post_install.sh`, in this framework.
+I plug the laptops into Ethernet ports on a switch on my desk, that is
+connected to my desktop, and boot the laptop from the LAN.  After about an
+hour, the laptop has a complete custom Lubuntu install, with all updates, and
+a fresh copy of RStudio, with the libraries needed for R Notebooks.  In due
+course I'll add more installs, but this is now just a question of extending
+a bash script `post_install.sh`, in this framework.
 
 My desktop acts as a proxy server for the installs, so it caches Ubuntu
 packages as the installer downloads them from the Ubuntu servers.  This means
