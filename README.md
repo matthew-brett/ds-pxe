@@ -2,23 +2,30 @@
 
 ## What it does
 
-I use this system to install identical fresh copies Lubuntu on laptops for my
-students.
+I use this system to install identical fresh copies of
+[Lubuntu](https://lubuntu.me/) on laptops for my students.
 
-The system runs on my desktop.
+It is a way to rescue some old laptops that my department does not want any
+more. This way my students can take away a laptop for the whole university
+year.  Although the laptop is too slow to run Windows, the Lubuntu install
+makes it usable for the work they need to do for my data science classes.
+
+The system runs on my office desktop. Luckily that has two network ports, so
+I can run the install system services such as DHCP on a private internal
+network.
 
 I plug the laptops into Ethernet ports on a switch on my desk, and boot from
 the LAN.  After about an hour, the laptop has a complete Lubuntu install, with
-all updates, and a fresh copy of RStudio, and the libraries needed for
+all updates, and a fresh copy of RStudio, with the libraries needed for
 R Notebooks.  In due course I'll add more installs, but this is now just
 a question of extending a bash script `post_install.sh`, in this framework.
 
-My desktop acts as a proxy server for the installs, so it caches the Ubuntu
-packages as they get installed.  This means that the external network traffic
-for a second install is much less.
+My desktop acts as a proxy server for the installs, so it caches Ubuntu
+packages as the installer downloads them from the Ubuntu servers.  This means
+that the external network traffic for a second install is much less.
 
-As you'll see, this involves running DHCP / PXE / TFTP and HTTP services on the
-desktop.
+As you'll see, the whole system involves running DHCP / PXE / TFTP and HTTP
+services on the desktop.
 
 In fact, my desktop is a Mac, and these instructions reflect that, somewhat,
 but of course you can do the same from a Linux box.
