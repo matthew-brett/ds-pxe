@@ -1,0 +1,13 @@
+# D-I config version 2.0
+# locale= setting needed to avoid various failed boot messages
+# Need lpxelinux.0 for use of http for source of kernel etc files.
+label PXE install
+	menu label ^Install Lubuntu via PXE
+	menu default
+	kernel http://192.168.0.56/lubuntu-install/linux
+	APPEND priority=critical vga=788 initrd=http://192.168.0.56/lubuntu-install/initrd.gz DEBCONF_DEBUG=5 DEBIAN_FRONTEND=text locale=en_GB.UTF-8 auto url=http://192.168.0.56/lubuntu-install/preseed.cfg netcfg/choose_interface=auto mirror/http/proxy=http://192.168.0.56 INSTALL_SERVER=http://192.168.0.56 --
+
+# Default menu utility
+default menu.c32
+prompt 0
+timeout 50
