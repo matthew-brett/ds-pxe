@@ -12,7 +12,7 @@ INSTALLERS_TAR_PATH=$(INSTALL_DIR)/installers.tar
 all: tftpboot-files kernel-images $(INSTALLERS_TAR_PATH)
 
 weblinks:
-	sudo ln -s ${PWD}/$(INSTALL_DIR) /Library/WebServer/Documents
+	sudo ln -s $(INSTALL_DIR) /Library/WebServer/Documents
 	sudo ln -s ${PWD}/tftpboot /private/tftpboot
 
 $(SYSLINUX_BIOS_DIR):
