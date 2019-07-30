@@ -1,15 +1,15 @@
 SYSLINUX_VERSION=6.03
-ARCHIVES=archives
+ARCHIVES=${PWD}/archives
 SYSLINUX_ROOT=syslinux-$(SYSLINUX_VERSION)
 SYSLINUX_DIR=$(ARCHIVES)/$(SYSLINUX_ROOT)
 SYSLINUX_BIOS_DIR=$(SYSLINUX_DIR)/bios
 NETBOOT_IMG_URL=http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64
-INSTALL_DIR=lubuntu-install
-INSTALLERS_TAR=$(INSTALL_DIR)/installers.tar
+INSTALL_DIR=${PWD}/lubuntu-install
+INSTALLERS_TAR_PATH=$(INSTALL_DIR)/installers.tar
 
 
 # For Mac
-all: tftpboot-files kernel-images $(INSTALLERS_TAR)
+all: tftpboot-files kernel-images $(INSTALLERS_TAR_PATH)
 
 weblinks:
 	sudo ln -s ${PWD}/$(INSTALL_DIR) /Library/WebServer/Documents
@@ -33,10 +33,10 @@ $(INSTALL_DIR)/initrd.gz:
 
 kernel-images: $(INSTALL_DIR)/linux $(INSTALL_DIR)/initrd.gz
 
-$(INSTALLERS_TAR):
+$(INSTALLERS_TAR_PATH):
 	cd installers && \
-		curl -LO https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb
-	tar cf $(INSTALLERS_TAR) installers
+		curl -LO https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb && \
+		tar cf $(INSTALLERS_TAR_PATH) *
 
 clean:
-	rm -rf $(ARCHIVES)/* $(INSTALLERS_TAR)
+	rm -rf $(ARCHIVES)/* $(INSTALLERS_TAR_PATH)

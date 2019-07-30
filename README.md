@@ -19,7 +19,7 @@ connected to my desktop, and boot the laptop from the LAN.  After about an
 hour, the laptop has a complete custom Lubuntu install, with all updates, and
 a fresh copy of RStudio, with the libraries needed for R Notebooks.  In due
 course I'll add more installs, but this is now just a question of extending
-a bash script `post_install.sh`, in this framework.
+a bash script `post_install.sh`, in this framework.  See below for more detail.
 
 My desktop acts as a proxy server for the installs, so it caches Ubuntu
 packages as the installer downloads them from the Ubuntu servers.  This means
@@ -116,5 +116,25 @@ is caching correctly.
 Last, you'll need to set the hash for your default user's password in the
 `lubuntu-install/preseed.cfg` file.
 
-OK - maybe all done - try to boot a machine from the network, to begin an
+## Post install
+
+After the main Lubuntu installation, the automated install does the following:
+
+* Copies an archive `installer.tar` to the machine on which the install is
+  running (the *laptop*):
+* Unpacks the archive into a directory `/installers`, on the laptop;
+* Runs the script `/installers/post_install.sh`.
+
+The `Makefile` compiles the `installers.tar` archive to the state that you want
+it.   It must include the file `post_install.sh`, but it may also include
+archives you want to copy across, or use during the install.
+
+In my case, the `Makefile` downloads the RStudio install `.deb` package, to
+include in the `installers.tar` archive.  The `post_install.sh` script
+(indirectly) installs this `.deb` file and does further installation of useful
+R packages.
+
+## All done
+
+Well - maybe all done.  Try to boot a machine from the network, to begin an
 install.
