@@ -6,6 +6,10 @@ label PXE install
 	menu default
 	kernel http://192.168.2.1/lubuntu-install/linux
 	APPEND priority=critical vga=788 initrd=http://192.168.2.1/lubuntu-install/initrd.gz DEBCONF_DEBUG=5 DEBIAN_FRONTEND=text locale=en_GB.UTF-8 auto url=http://192.168.2.1/lubuntu-install/preseed.cfg netcfg/choose_interface=auto mirror/http/proxy=http://192.168.2.1 POST_INSTALL_URL=http://192.168.2.1/lubuntu-install --
+label PXE install i386
+	menu label ^Install 32-bit Lubuntu via PXE
+	kernel http://192.168.2.1/lubuntu-install-i386/linux
+	APPEND priority=critical vga=788 initrd=http://192.168.2.1/lubuntu-install-i386/initrd.gz DEBCONF_DEBUG=5 DEBIAN_FRONTEND=text locale=en_GB.UTF-8 auto url=http://192.168.2.1/lubuntu-install/preseed.cfg netcfg/choose_interface=auto mirror/http/proxy=http://192.168.2.1 POST_INSTALL_URL=http://192.168.2.1/lubuntu-install-i386 --
 
 # Default menu utility
 default menu.c32
