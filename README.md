@@ -42,7 +42,8 @@ but of course you can do the same from a Linux box.
 * [Another preseed
   example](https://f-o.org.uk/2017/automating-debian-installation-using-preseeding.html)
 
-There are other links in the `lubuntu-install/preseed.cfg` file.
+There are other links in the `lubuntu-install/preseed.cfg` file in this
+repository.
 
 ## Setup
 
@@ -111,10 +112,11 @@ curl -LO localhost/lubuntu-install/preseed.cfg
 ```
 
 Consider reviewing `/var/log/apache2/error_log` to check that the proxy server
-is caching correctly.
+is caching correctly.  You'll need to set Apache `LogLevel debug` to see the
+cache log messages enabled in the `httpd.conf` file above.
 
 Last, you'll need to set the hash for your default user's password in the
-`lubuntu-install/preseed.cfg` file.
+`lubuntu-install/preseed.cfg` file.  See the instructions in that file for details.
 
 ## Post install
 
@@ -125,14 +127,20 @@ After the main Lubuntu installation, the automated install does the following:
 * Unpacks the archive into a directory `/installers`, on the laptop;
 * Runs the script `/installers/post_install.sh`.
 
-The `Makefile` compiles the `installers.tar` archive to the state that you want
-it.   It must include the file `post_install.sh`, but it may also include
-archives you want to copy across, or use during the install.
+The `Makefile` at the root of this repository compiles the `installers.tar`
+archive to the state that you want it.   The archive must include the file
+`post_install.sh`, but it may also include archives you want to copy across or
+use during the install.
 
 In my case, the `Makefile` downloads the RStudio install `.deb` package, to
 include in the `installers.tar` archive.  The `post_install.sh` script
 (indirectly) installs this `.deb` file and does further installation of useful
 R packages.
+
+If you want 32 bit / i386 installs, you may want to run `make` from the `i386`
+directory, to install the 32-bit kernel files, and build `installers.tar`.
+Then consider running `make weblinks` in that directory, to link the i386
+directory into the web server tree.
 
 ## All done
 
