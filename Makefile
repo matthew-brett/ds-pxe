@@ -35,7 +35,7 @@ kernel-images: $(INSTALL_DIR)/linux $(INSTALL_DIR)/initrd.gz
 
 $(INSTALLERS_TAR_PATH):
 	cd installers && \
-		curl -LO https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb && \
+		curl -LO https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh && \
 		tar cf $(INSTALLERS_TAR_PATH) *
 
 clean:
