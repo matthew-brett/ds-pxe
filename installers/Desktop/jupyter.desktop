@@ -4,6 +4,7 @@ Type=Application
 Path=/home/dataphile/Desktop/Notebooks
 Exec=/home/dataphile/anaconda3/bin/jupyter notebook
 Icon=/home/dataphile/anaconda3/lib/python3.7/site-packages/anaconda_navigator/static/images/jupyter-icon-1024x1024.png
+Terminal=true
 StartupNotify=true
 
 
