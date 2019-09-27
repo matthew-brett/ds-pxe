@@ -17,6 +17,10 @@ sudo -u ${DS_USER} mkdir ${DS_DESKTOP}
 # Copy generic shortcuts
 cp ${SCRIPT_DIR}/Desktop/firefox.desktop ${DS_DESKTOP}
 cp ${SCRIPT_DIR}/Desktop/lxterminal.desktop ${DS_DESKTOP}
+cp ${SCRIPT_DIR}/Desktop/fileman.desktop ${DS_DESKTOP}
+cp ${SCRIPT_DIR}/Desktop/connecting_to_wifi.pdf ${DS_DESKTOP}
+# Make shortcut to wifi certificate
+sudo -u ${DS_USER} ln -s /etc/ssl/certs/QuoVadis_Root_CA_2.pem ${DS_HOME}/Downloads/
 
 source ${SCRIPT_DIR}/install_anaconda.sh
 
