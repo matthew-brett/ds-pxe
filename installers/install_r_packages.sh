@@ -7,3 +7,5 @@ sudo apt install -f -y ${SCRIPT_DIR}/*.deb
 echo 'options("repos"="http://cran.rstudio.com")' > ~/.Rprofile
 # Install packages for R notebook
 sudo Rscript -e "install.packages(c('rmarkdown', 'rprojroot'))"
+# Install desktop shortcut for RStudio
+cp ${SCRIPT_DIR}/Desktop/rstudio.desktop ${DS_DESKTOP}
