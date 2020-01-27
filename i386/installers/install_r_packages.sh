@@ -14,5 +14,8 @@ sudo apt install -f -y ./rstudio*.deb
 echo 'options("repos"="https://cran.rstudio.com")' > ~/.Rprofile
 # Install packages for R notebook
 sudo Rscript -e "install.packages(c('rmarkdown', 'rprojroot'))"
+# Fix some missing packages
+sudo Rscript -e "install.packages('remotes')"
+sudo Rscript -e "remotes::install_version('caTools', '1.14')"
 # Install desktop shortcut for RStudio
 cp ${SCRIPT_DIR}/Desktop/rstudio.desktop ${DS_DESKTOP}
